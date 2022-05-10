@@ -45,8 +45,8 @@ end
 
 live_loop :receive_improvisation do
   use_real_time
-  melo_received = sync "/osc:127.0.0.1:*/dummy_compose_function_2_melo"
-  rhym_received = sync "/osc:127.0.0.1:*/dummy_compose_function_2_rhym"
+  melo_received = sync "/osc:127.0.0.1:*/*_melo"
+  rhym_received = sync "/osc:127.0.0.1:*/*_rhym"
   set :midi_pitch, melo_received
   set :midi_rhytm, rhym_received
   cue :phrase_ready
