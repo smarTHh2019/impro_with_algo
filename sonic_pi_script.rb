@@ -5,7 +5,7 @@
 #########################
 
 use_bpm 120
-chord_list = [chord(:C4, "7"),chord(:C4, "7"),chord(:C4, "7"),chord(:C4, "7"),]
+chord_list = [chord(:C4, "7"),chord(:G3, "7"),chord(:D4, "minor7"),chord(:C4, "7"),]
 
 # dummy data for received phrase
 midi_pitch = ring 62, 62
@@ -39,7 +39,7 @@ end
 live_loop :request_python_improvisation do
   sync :start_of_phrase
   use_osc "localhost", 4545
-  osc "/impro/phrase", 4     # request 4 bars of improvisation
+  osc "/impro/phrase", chord_list.to_s     # request 4 bars of improvisation
   sync :start_play_impro     # wait until the impro is playing before requesting a new one
 end
 

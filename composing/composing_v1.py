@@ -59,14 +59,14 @@ def create_random_motif(chord:list=[0,4,7], scale:list=DUR, len_ticks:int=16, nu
     return r_melo, r_rhym
 
 
-def compose_n_bars(N_bars:int) -> Tuple[list]:
+def compose_n_bars(chords:list) -> Tuple[list]:
     '''Composes n bars of music as basic algorithmic improvisation'''
 
     total_melo = []
     total_rhym = []
 
-    for ii in range(N_bars):
-        tmp_m, tmp_r = create_random_motif()
+    for _,ch in enumerate(chords):
+        tmp_m, tmp_r = create_random_motif(chord=ch)
         total_melo.extend(tmp_m)
         total_rhym.extend(tmp_r)
     
